@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TOSDR RAG Assistant</title>
+    <style>
+        .feedback-container {
+            margin: 20px 0;
+        }
+        .feedback-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .feedback-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .thumbs-up {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .thumbs-up:hover {
+            background-color: #45a049;
+        }
+        .thumbs-down {
+            background-color: #f44336;
+            color: white;
+        }
+        .thumbs-down:hover {
+            background-color: #da190b;
+        }
+        .feedback-message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <h1>TOSDR RAG Assistant</h1>
+    <form method="post">
+        <label for="query">Enter your question:</label><br>
+        <input type="text" id="query" name="query" size="80" value="{{ query }}"><br><br>
+        <input type="submit" value="Get Answer">
+    </form>
+
+    {% if answer %}
+        <h2>Answer:</h2>
+        <p id="answer-text">{{ answer }}</p>
+        
+        <div class="feedback-container">
+            <p><strong>Was this answer helpful?</strong></p>
+            <div class="feedback-buttons">
+                <button class="feedback-btn thumbs-up" onclick="submitFeedback('thumbs_up')">
+                    👍 Helpful
+                </button>
+                <button class="feedback-btn thumbs-down" onclick="submitFeedback('thumbs_down')">
+                    👎 Not Helpful
+                </button>
+            </div>
+            <div id="feedback-message" class="feedback-message"></div>
+        </div>
+    {% endif %}
+
+    <script>
+        async function submitFeedback(rating) {
+            const query = "{{ query }}";
+            const answer = document.getElementById('answer-text').textContent;
+            const messageDiv = document.getElementById('feedback-message');
+            
+            try {
+                const response = await fetch('/feedback', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        query: query,
+                        answer: answer,
+                        rating: rating
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    messageDiv.textContent = 'Thank you for your feedback!';
+                    messageDiv.className = 'feedback-message success';
+                    messageDiv.style.display = 'block';
+                    
+                    // Disable buttons after feedback
+                    const buttons = document.querySelectorAll('.feedback-btn');
+                    buttons.forEach(btn => {
+                        btn.disabled = true;
+                        btn.style.opacity = '0.6';
+                        btn.style.cursor = 'not-allowed';
+                    });
+                } else {
+                    throw new Error(result.message);
+                }
+            } catch (error) {
+                messageDiv.textContent = 'Error submitting feedback: ' + error.message;
+                messageDiv.className = 'feedback-message error';
+                messageDiv.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

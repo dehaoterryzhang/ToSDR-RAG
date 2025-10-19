@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  ingestion:
+    build:
+      context: .
+      dockerfile: Dockerfile.ingestion
+    volumes:
+      - .:/app
+    environment:
+      - QDRANT_STORAGE_PATH=/app/data/qdrant_local
+    command: ["bash", "scripts/run_ingestion.sh"]
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    depends_on:
+      - ingestion
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - QDRANT_STORAGE_PATH=/app/data/qdrant_local

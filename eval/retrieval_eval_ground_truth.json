@@ -1,0 +1,74 @@
+[
+  {
+    "query": "How can I control access to my Fitbit data shared with third-party applications or wellness programs?",
+    "answer_id": "Fitbit_PrivacyPolicy_chunk3"
+  },
+  {
+    "query": "What options do I have to access, edit, or delete my personal data in Fitbit?",
+    "answer_id": "Fitbit_PrivacyPolicy_chunk3"
+  },
+  {
+    "query": "How long does Fitbit retain my account and activity data, and under what circumstances can it be preserved longer?",
+    "answer_id": "Fitbit_PrivacyPolicy_chunk3"
+  },
+  {
+    "query": "How does Google use cookies across its services and partner sites?",
+    "answer_id": "Google_PrivacyPolicy_chunk6"
+  },
+  {
+    "query": "What types of personal and non-personal information does Google collect, and how are unique identifiers used?",
+    "answer_id": "Google_PrivacyPolicy_chunk6"
+  },
+  {
+    "query": "What is a Pixel tag and how does Google use it to track user activity?",
+    "answer_id": "Google_PrivacyPolicy_chunk6"
+  },
+  {
+    "query": "How does Instagram limit developer access to user data, and what type of data can apps access without review?",
+    "answer_id": "Instagram_DataPolicy_chunk4"
+  },
+  {
+    "query": "In what situations can Instagram transfer my data to a new owner?",
+    "answer_id": "Instagram_DataPolicy_chunk4"
+  },
+  {
+    "query": "How can users manage, delete, or deactivate their Instagram or Facebook accounts and the associated data?",
+    "answer_id": "Instagram_DataPolicy_chunk4"
+  },
+  {
+    "query": "What are the rules for using Microsoft's Communication Services and what types of content are prohibited?",
+    "answer_id": "MicrosoftServices_TermsofUse_chunk3"
+  },
+  {
+    "query": "What rights does Microsoft have regarding reviewing or removing content posted on its Communication Services?",
+    "answer_id": "MicrosoftServices_TermsofUse_chunk3"
+  },
+  {
+    "query": "If I post or submit materials to Microsoft services, what permissions am I granting and what warranties must I make?",
+    "answer_id": "MicrosoftServices_TermsofUse_chunk3"
+  },
+  {
+    "query": "What personal information is shared between Guests and Hosts when a booking is made on Airbnb?",
+    "answer_id": "Airbnb_PrivacyPolicy_chunk3"
+  },
+  {
+    "query": "How does Airbnb share Host information with other parties like tax authorities or building management?",
+    "answer_id": "Airbnb_PrivacyPolicy_chunk3"
+  },
+  {
+    "query": "What types of public information about Hosts and Guests may be visible on Airbnb and third-party platforms?",
+    "answer_id": "Airbnb_PrivacyPolicy_chunk3"
+  },
+  {
+    "query": "What types of cookies does Facebook use to personalize content and improve user experience?",
+    "answer_id": "Facebook_CookiePolicy_chunk2"
+  },
+  {
+    "query": "How can users control how Facebook uses cookies and data for ads?",
+    "answer_id": "Facebook_CookiePolicy_chunk2"
+  },
+  {
+    "query": "Do third-party websites and apps use cookies in connection with Facebook, and how?",
+    "answer_id": "Facebook_CookiePolicy_chunk2"
+  }
+]
