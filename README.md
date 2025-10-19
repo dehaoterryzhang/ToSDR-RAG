@@ -22,6 +22,7 @@ By doing so, ToSDR-RAG aims to make digital consent **transparent, accessible, a
 ## 🧭 RAG Architecture Overview
 
 ![RAG Flow Diagram](images/rag-flow-diagram.drawio.png)
+
 *Figure: High-level flow diagram of data ingestion and retrieval-augmented generation (RAG) web app.*
 
 ---
